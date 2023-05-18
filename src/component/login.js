@@ -34,7 +34,7 @@ const login=async()=>{
 
     headers: {
    "Content-Type": "application/json",
-      'Access-Control-Allow-Origin':'https://front-profes.vercel.app/',
+      'Access-Control-Allow-Origin':'*',
    //'Access-Control-Allow-Methods':'*',
        //'Content-Type': 'application/x-www-form-urlencoded',
        "Access-Control-Allow-Credentials": true,
