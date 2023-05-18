@@ -28,7 +28,7 @@ function Chat(){
 //         let all= await axios.get('http://localhost:8000/all')
 //         console.log("all;",all);
 // let newarr=all.data.filter((i)=>i.email!==localStorage.getItem('email'))
-       let chatList=await axios.post(BACKEND_HOST+ '/api/chat_list',{id:localStorage.getItem('id')})
+       let chatList=await axios.post(BACKEND_HOST+ 'api/chat_list',{id:localStorage.getItem('id')})
        console.log(chatList);
         setAllUser(chatList.data)
 
