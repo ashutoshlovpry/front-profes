@@ -3,7 +3,7 @@ module.exports = function(app) {
   app.use(
     '/',
     createProxyMiddleware({
-      target: 'http://localhost:8000/',
+      target: 'https://front-profes.vercel.app/',
       changeOrigin: true,
     })
   );
