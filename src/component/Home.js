@@ -38,7 +38,6 @@ useEffect(()=>{
     }
 
 },[])
-console.log(process.env.REACT_APP_MONGO_URI);
 const signUp=async()=>{
   let firstName= document.getElementById("firstName").value
   let lastName= document.getElementById("lastName").value
@@ -63,7 +62,7 @@ const signUp=async()=>{
 
     headers: {
    "Content-Type": "application/json",
-      'Access-Control-Allow-Origin':'http://localhost:3001/',
+      'Access-Control-Allow-Origin':'https://front-profes.vercel.app/',
    //'Access-Control-Allow-Methods':'*',
        //'Content-Type': 'application/x-www-form-urlencoded',
        "Access-Control-Allow-Credentials": true,
