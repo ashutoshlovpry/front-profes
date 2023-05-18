@@ -24,7 +24,7 @@ const login=async()=>{
   data.password=password
   console.log("pp",process.env,data)
   axios.defaults.withCredentials = true;
-  let res=await axios('/login',{
+  let res=await axios( BACKEND_HOST +'/login',{
    
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
