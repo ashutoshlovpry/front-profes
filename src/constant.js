@@ -1,6 +1,6 @@
 
 
-export const  BACKEND_HOST='http://localhost:8000'
+export const  BACKEND_HOST='https://front-profes.vercel.app'
 
 
 export const token='ashutoshspriya'
