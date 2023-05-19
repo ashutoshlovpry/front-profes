@@ -50,7 +50,7 @@ const signUp=async()=>{
   data.email=email
   data.password=password
   data.profession=profession
-  console.log("pp",process.env,data)
+ 
   try {
   let res=await axios('/signup',{
    
