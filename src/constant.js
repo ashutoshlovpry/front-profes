@@ -1,6 +1,6 @@
 
 
-export const  BACKEND_HOST='https://front-profes.vercel.app'
+export const  BACKEND_HOST='https://new-prof.onrender.com/'
 
 
 export const token='ashutoshspriya'
