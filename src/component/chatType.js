@@ -1,16 +1,17 @@
 import {useEffect, useState} from 'react'
 import { io } from "socket.io-client";
+import {BACKEND_HOST} from '../constant'
 
 
 function ChatType(props) {
     const [messages, setMessages] = useState([]);
     const [roomId,setRoomId]=useState(null)
 //console.log(props);
-const socket = io('https://new-prof.onrender.com/',{
+const socket = io(BACKEND_HOST,{
     transports: ['websocket'],
-    extraHeaders: {
-        "token": document.cookie.token
-      }
+    // extraHeaders: {
+    //     "token": document.cookie.token
+    //   }
   });
 useEffect( ()=>{
    console.log("pp",props);
@@ -28,13 +29,13 @@ useEffect( ()=>{
 
 
  },[])
- socket.on('roomId',(data)=>{
- console.log("rromID",data);
- setRoomId(data)
- })
- socket.on('message',(data)=>{console.log("msgrecivett",data);
- //addMessage(username, message);
- setMessages(messages => [...messages, { username: data.name, message: data.message }]);
+//  socket.on('roomId',(data)=>{
+//  console.log("rromID",data);
+//  setRoomId(data)
+//  })
+socket.on('message',(data)=>{console.log("msgrecivett",data);
+//addMessage(username, message);
+setMessages(messages => [...messages, { username: data.name, message: data.message }]);
 
 
 

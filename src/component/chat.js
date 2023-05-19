@@ -16,7 +16,7 @@ function Chat(){
     const [sendtoId,setSendtoId]=useState('');
     const [typingPage,setTypingPage]=useState(false);
     const [userData,setUserData]=useState({})
-    const socket = io('https://new-prof.onrender.com/',{
+    const socket = io(BACKEND_HOST,{
       transports: ['websocket'],
       extraHeaders: {
           "token": document.cookie.token

@@ -1,6 +1,6 @@
 
 
-export const  BACKEND_HOST='https://new-prof.onrender.com'
+export const  BACKEND_HOST='http://localhost:8000'
 
 
 export const token='ashutoshspriya'

@@ -24,7 +24,7 @@ const login=async()=>{
   data.password=password
   console.log("pp",process.env,data)
   axios.defaults.withCredentials = true;
-  let res=await axios( BACKEND_HOST +'/login',{
+  let res=await axios( '/login',{
    
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -34,7 +34,7 @@ const login=async()=>{
 
     headers: {
    "Content-Type": "application/json",
-      'Access-Control-Allow-Origin':'https://new-prof.onrender.com/',
+      'Access-Control-Allow-Origin':'*',
    'Access-Control-Allow-Methods':'*',
        //'Content-Type': 'application/x-www-form-urlencoded',
        "Access-Control-Allow-Credentials": true,
