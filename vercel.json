@@ -10,10 +10,13 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/(.*):path*",
-      "destination": "https://new-prof.onrender.com:path"
-    }
-  ]
+  
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "https://new-prof.onrender.com/$1"
+      }
+    ]
+  
+  
 }
