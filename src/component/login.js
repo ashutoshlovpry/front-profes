@@ -36,6 +36,7 @@ const login=async()=>{
 
    'Access-Control-Allow-Methods':'GET,OPTIONS,PATCH,DELETE,POST,PUT',
        //'Content-Type': 'application/x-www-form-urlencoded',
+       'Access-Control-Allow-Origin':'http://localhost:3001, https://front-profes.vercel.app, https://new-prof.onrender.com',
        "Access-Control-Allow-Credentials": true,
    },
     mode: 'cors',
