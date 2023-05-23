@@ -15,7 +15,7 @@ function Login(params) {
 const navigate = useNavigate();
 
 const login=async()=>{
-  
+  try{
   let email= document.getElementById("email").value
   let password= document.getElementById("password").value
   
@@ -33,7 +33,7 @@ const login=async()=>{
 
    headers: {
    //"Content-Type": "application/json",
-      'Access-Control-Allow-Origin':'https://front-profes.vercel.app , http://localhost:3001/',
+
    'Access-Control-Allow-Methods':'GET,OPTIONS,PATCH,DELETE,POST,PUT',
        //'Content-Type': 'application/x-www-form-urlencoded',
        "Access-Control-Allow-Credentials": true,
@@ -49,9 +49,10 @@ const login=async()=>{
     localStorage.setItem('id',res.data.user);
     localStorage.setItem('email',res.data.email)
     navigate('/chat')
-    // <Link to="/chat"></Link>
- // }
-  //document.cookie=`token =${res.data.token}`
+}
+catch(e){
+    console.log(e);
+}
 }
 return(
     <>
