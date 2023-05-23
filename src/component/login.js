@@ -31,13 +31,13 @@ const login=async()=>{
    // credentials: 'include',//same-origin', // include, *same-origin, omit
     withCredentials:true,
 
-//    headers: {
-//    //"Content-Type": "application/json",
-//       'Access-Control-Allow-Origin':'*',
-//    'Access-Control-Allow-Methods':'*',
-//        //'Content-Type': 'application/x-www-form-urlencoded',
-//        "Access-Control-Allow-Credentials": true,
-//    },
+   headers: {
+   //"Content-Type": "application/json",
+      'Access-Control-Allow-Origin':'https://front-profes.vercel.app , http://localhost:3001/',
+   'Access-Control-Allow-Methods':'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+       //'Content-Type': 'application/x-www-form-urlencoded',
+       "Access-Control-Allow-Credentials": true,
+   },
     mode: 'cors',
     data:data,
     //redirect: "follow", // manual, *follow, error
