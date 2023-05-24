@@ -19,7 +19,7 @@ module.exports = function(app) {
   app.use(
     '/',
     createProxyMiddleware({
-      target: 'https://front-profes.vercel.app',
+      target: 'https://new-prof.onrender.com',
       changeOrigin: true,
     })
   );
