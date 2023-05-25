@@ -16,11 +16,10 @@ const  {createProxyMiddleware}  = require('http-proxy-middleware');
 // };
 
 module.exports = function(app) {
-  console.log("proxy calling");
   app.use(
     '/',
     createProxyMiddleware({
-      target: 'https://new-prof.onrender.com',
+      target: 'https://new-prof.onrender.com/',
       changeOrigin: true,
     })
   );
