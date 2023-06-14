@@ -7,6 +7,7 @@ import axios from "axios";
 import ChatType from "./chatType";
 import Navbar from "./navbar";
 import {BACKEND_HOST} from '../constant'
+import React, { Component }  from 'react';
 
 function Chat(){
     const [messages, setMessages] = useState([]);

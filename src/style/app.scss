@@ -1,0 +1,20 @@
+.chat-window{
+    color: black;
+}
+body{
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,rgb(66, 156, 216), #46aae7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5095da, #50ddd1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@media (max-width: 768px) {
+    /* CSS styles specific to tablets */
+  }
+  
+  /* Styles for devices with a maximum width of 480px (e.g., smartphones) */
+  @media (max-width: 480px) {
+    /* CSS styles specific to smartphones */
+  }
+
+  @media (max-width: 1200px) {
+    /* CSS styles specific to Desktop */
+  }

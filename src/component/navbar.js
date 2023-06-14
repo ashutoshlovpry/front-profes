@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import Cookies from 'js-cookie';
-
+import Search from "./search";
+import React, { Component }  from 'react';
 
 
 function Navbar() {
@@ -8,7 +9,7 @@ function Navbar() {
 
 
     return (<>
-
+        <Search/>
         <ul className="nav justify-content-end">
             <li className="nav-item">
                 <Link className="nav-link active" to="/"> Home</Link>

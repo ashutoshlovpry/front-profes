@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { redirect } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import Navbar from "./navbar";
+import React, { Component }  from 'react';
 
 function Login(params) {
 
@@ -36,10 +37,10 @@ const login=async()=>{
 
    'Access-Control-Allow-Methods':'GET,OPTIONS,PATCH,DELETE,POST,PUT',
        //'Content-Type': 'application/x-www-form-urlencoded',
-       'Access-Control-Allow-Origin':'http://localhost:3001, https://front-profes.vercel.app, https://new-prof.onrender.com',
+       'Access-Control-Allow-Origin':'http://localhost:3001, https://front-profes.vercel.app, https://new-prof.onrender.com , http://localhost:8000',
        "Access-Control-Allow-Credentials": true,
    },
-    mode: 'cors',
+    mode: 'no-cors',
     data:data,
     //redirect: "follow", // manual, *follow, error
    // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url

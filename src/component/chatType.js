@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react'
 import { io } from "socket.io-client";
 import {BACKEND_HOST} from '../constant'
+import React, { Component }  from 'react';
 
-
+import '../style/chat.scss'
 function ChatType(props) {
     const [messages, setMessages] = useState([]);
     const [roomId,setRoomId]=useState(null)
@@ -33,7 +34,7 @@ useEffect( ()=>{
 //  console.log("rromID",data);
 //  setRoomId(data)
 //  })
-socket.on('message',(data)=>{console.log("msgrecivett",data);
+socket.once('message',(data)=>{console.log("msgrecivett",data);
 //addMessage(username, message);
 setMessages(messages => [...messages, { username: data.name, message: data.message }]);
 
@@ -55,17 +56,22 @@ function handleMessageSubmit(event) {
           name:props.user.name
         };
         socket.emit('messageto',JSON.stringify(data));
-        setMessages(messages => [...messages, { username: 'You', message: msg ,name:props.user.name}]);
+      setMessages(messages => [...messages, { username: 'You', message: msg ,name:props.user.name}]);
       }
     }
 return (<>
- <div className="chat-body">
+ <div className="chat-container">
+ <div className="chat-messages">
+
         {messages.map((message, index) => (
           <div key={index}>
+            <div className={localStorage.getItem('id')!==message.id?'message incoming':'message outgoing'}>
             <p><strong>{message.username}:</strong> {message.message}</p>
+            </div>
           </div>
         ))}
       </div>
+      
       <div className="chat-footer">
       send to-{props.user.email}
       you-{localStorage.getItem('email')}
@@ -75,6 +81,8 @@ return (<>
           <button type="submit">Send</button>
         </form>
       </div> 
+      </div>
+     
 
 
 
