@@ -11,7 +11,7 @@ import React, { Component }  from 'react';
 function App() {
   return (
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
     <Routes>
 
 
@@ -22,7 +22,7 @@ function App() {
       <Route path='/profile' element={<Profile/>}></Route>
 
       </Routes>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </>
         
   );
