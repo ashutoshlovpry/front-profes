@@ -42,7 +42,7 @@ export default function Map(){
     //     key: "AIzaSyCf55dIPFL7yue2Cwu1tOFt8qr-FBHI92o",
     //     libraries: ["places", "geometry", "drawing", "visualization"],
     //   }}
-      //apiKey={'AIzaSyAOz-GiMXkOfT3XAEp7oScc4c2G2fTBYJ8'}
+      
        // bootstrapURLKeys={{ key: "" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
