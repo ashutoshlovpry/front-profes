@@ -24,15 +24,35 @@ const handleFileChange=async (event)=>{
 console.log("rr",res);
 
     }
+    const editDetails=async()=>{
+      let data={}
+      data.name=document.getElementById("name").value
+      data.email=localStorage.getItem('email')
+
+      let res =await axios.put(BACKEND_HOST+'/api/edit_profile',data, {
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+          'Access-Control-Allow-Origin': 'http://localhost:3001, https://front-profes.vercel.app, https://new-prof.onrender.com , http://localhost:8000',
+        }
+      })
+console.log("rr",res);
+    }
+    
     return(<>
     <form action="/profile" method="post" enctype="multipart/form-data">
 
     <lable>Choose profile picture</lable>
-    <input type="file" id="file-input" name="file"  ></input>
+    <input type="file" id="file-input" name="myFile"  ></input>
     <button type="submit" onClick={handleFileChange}>Submit</button>
     </form>
     
-    
+    <div className="lastname">
+                  <label className="form__label" for="lastName">Name </label>
+                  <input  type="text" name="" id="name"  className="form__input"placeholder="LastName"/>
+              </div>
+              <button type="submit" onClick={editDetails}>change name</button>
+
     </>)
 }
 export default Profile

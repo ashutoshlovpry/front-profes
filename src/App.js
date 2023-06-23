@@ -5,11 +5,13 @@ import {  Routes, Route,BrowserRouter } from 'react-router-dom';
 import Login from './component/login';
 import Chat from './component/chat';
 import Profile from './component/profile';
+import Map from './component/map';
 import './style/app.scss'
 import React, { Component }  from 'react';
 import { useEffect } from "react";
-import { messaging } from "./fire";
+import { messaging } from "./firebase";
 import { getToken } from "firebase/messaging";
+import FirestoreSaveComponent from './component/firebase';
 function App() {
  
     async function requestPermission() {
@@ -22,6 +24,7 @@ function App() {
           vapidKey:
             "BLzowO5w_i1oMU_SzbHnw14STHGUv9Br5bzkDYceKiqTeTeZMVOoI_4RqDmgkRK1scgjkTcd1CezUE-koKoB0g8",
         });
+        localStorage.setItem("firebase",token)
         console.log("Token Gen", token);
         // Send this token  to server ( db)
       } else if (permission === "denied") {
@@ -45,7 +48,8 @@ function App() {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/chat' element={<Chat/>}></Route>
       <Route path='/profile' element={<Profile/>}></Route>
-
+      <Route path='/map' element={<Map/>}></Route>
+      <Route path='/fs' element={<FirestoreSaveComponent/>}></Route>
       </Routes>
       {/* </BrowserRouter> */}
     </>
