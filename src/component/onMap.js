@@ -1,10 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import { BACKEND_HOST } from "../constant";
+import  { memo } from 'react';
 
 const Onmap = (props) => {
   const [location, setLocation] = useState(null);
  console.log("p",props);
+ useEffect( ()=>{
  
-    
+  fetchnearData()
+
+ },[])
+ const fetchnearData=async()=>{
+  let data={}
+  data.latitude=localStorage.getItem('latitude')
+      data.longitude=localStorage.getItem('longitude')
+      data.radius=50000
+  let res =await axios.post(BACKEND_HOST+'/api/nearby', data )
+  
+  
+ console.log("rr",res);
+ }
+ 
+
+
+
 //  const marker = new window.google.maps.Marker({
 //     position: {
 //       lat: this.state.masterCoords.lat,
@@ -20,7 +40,9 @@ const Onmap = (props) => {
   return (
     <>
     <div style={{ color: 'red', fontWeight: 'bold' }} onClick={getmarker}>jfjhhfggtrgdfgaretaed</div>
+    <button onClick={fetchnearData}>API Call</button>
     </>
+
 //     <div>
 //       {location ? (
 //         <div>
@@ -31,6 +53,6 @@ const Onmap = (props) => {
 //       )}
 //     </div>
    );
-};
+}
 
-export default Onmap;
+export default memo(Onmap);

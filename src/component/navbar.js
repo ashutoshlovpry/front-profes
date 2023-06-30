@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Cookies from 'js-cookie';
 import Search from "./search";
-import React, { Component }  from 'react';
+import React, { memo  }  from 'react';
 
 
 function Navbar() {

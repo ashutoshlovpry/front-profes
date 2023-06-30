@@ -35,7 +35,32 @@ useEffect(()=>{
     const cookieValue = Cookies.get('token');
     if(cookieValue){
         navigate('/chat')
+        return ()=>{}
     }
+    else{
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              position => {
+                
+                const { latitude, longitude } = position.coords;
+                localStorage.setItem('latitude',latitude)
+                localStorage.setItem('longitude',longitude)
+      
+                  if(latitude===localStorage.getItem('latitude') || longitude===localStorage.getItem('latitude')){
+                     // let res= await axios
+      
+                  }
+                console.log("ppos",latitude,longitude);
+              },
+              error => {
+                console.error('Error getting location:', error);
+              }
+            );
+          } else {
+            console.error('Geolocation is not supported by this browser.');
+          }
+    }
+    return ()=>{}
 
 },[])
 const signUp=async()=>{
@@ -50,9 +75,11 @@ const signUp=async()=>{
   data.email=email
   data.password=password
   data.profession=profession
+  data.longitude=localStorage.getItem('longitude')
+  data.latitude=localStorage.getItem('latitude')
  
   try {
-  let res=await axios('/signup',{
+  let res=await axios(BACKEND_HOST+'/signup',{
    
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     //cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

@@ -24,17 +24,12 @@ function Chat(){
         }
     });
     useEffect( ()=>{
+      let ignore = false;
       
-       let fun=async()=>{
-//         let all= await axios.get('http://localhost:8000/all')
-//         console.log("all;",all);
-// let newarr=all.data.filter((i)=>i.email!==localStorage.getItem('email'))
-       let chatList=await axios.post(BACKEND_HOST+ '/api/chat_list',{id:localStorage.getItem('id')})
-       console.log(chatList);
-        setAllUser(chatList.data)
-
-       }
        fun()
+       return () => {
+        ignore = true;
+      };
       // socket.on('connect', () => {
       //   console.log("connet");
       
@@ -55,7 +50,15 @@ function Chat(){
   //   socket.on('message',(data)=>{console.log("msgrecive",data);
   //   //addMessage(username, message);
   //   setMessages(messages => [...messages, { username: data.name, message: data.message }]);
-
+  let fun=async()=>{
+    //         let all= await axios.get('http://localhost:8000/all')
+    //         console.log("all;",all);
+    // let newarr=all.data.filter((i)=>i.email!==localStorage.getItem('email'))
+           let chatList=await axios.post(BACKEND_HOST+ '/api/chat_list',{id:localStorage.getItem('id')})
+           console.log(chatList);
+         setAllUser(chatList.data)
+    
+           }
   
   
   // })

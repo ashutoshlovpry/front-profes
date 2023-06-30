@@ -24,6 +24,7 @@ function App() {
           vapidKey:
             "BLzowO5w_i1oMU_SzbHnw14STHGUv9Br5bzkDYceKiqTeTeZMVOoI_4RqDmgkRK1scgjkTcd1CezUE-koKoB0g8",
         });
+   
         localStorage.setItem("firebase",token)
         console.log("Token Gen", token);
         // Send this token  to server ( db)
@@ -32,7 +33,9 @@ function App() {
         alert("You denied for the notification");
       }
     }
-  
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('firebase-messaging-sw.js');
+    }
     useEffect(() => {
       // Req user for notification permission
       requestPermission();

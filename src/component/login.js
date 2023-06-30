@@ -1,6 +1,6 @@
 //import { useEffect } from "react";
 import axios from "axios";
-
+import  { useEffect, useState } from 'react';
 import {BACKEND_HOST} from '../constant'
 import { Link } from "react-router-dom";
 import { redirect } from "react-router-dom";
@@ -9,10 +9,49 @@ import Navbar from "./navbar";
 import React, { Component }  from 'react';
 
 function Login(params) {
+    const [location, setLocation] = useState(null);
 
 // useEffect(()=>{
 
 // },[])
+useEffect(async () => {
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(
+    //   async  position => {
+          
+    //       const { latitude, longitude } = position.coords;
+       
+    //         if(latitude.toString()===localStorage.getItem('latitude') || longitude.toString()===localStorage.getItem('latitude')){
+    //            let data={}
+    //            data.name=document.getElementById("name").value
+    //            data.email=localStorage.getItem('email')
+    //            data.latitude=localStorage.getItem('latitude')
+    //            data.longitude=localStorage.getItem('longitude')
+    //            let res =await axios.put(BACKEND_HOST+'/api/edit_profile',data, {
+    //              headers: {
+    //                "Content-Type": "application/json",
+    //                'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+    //                'Access-Control-Allow-Origin': 'http://localhost:3001, https://front-profes.vercel.app, https://new-prof.onrender.com , http://localhost:8000',
+    //              }
+    //            })
+    //            localStorage.setItem('latitude',latitude)
+    //            localStorage.setItem('longitude',longitude)
+     
+    //      console.log("rr",res);
+    //         }
+    //       console.log("ppos",latitude,longitude);
+    //     },
+    //     error => {
+    //       console.error('Error getting location:', error);
+    //     }
+    //   );
+    // } else {
+    //   console.error('Geolocation is not supported by this browser.');
+    // }
+ return ()=>{
+
+ }
+  }, []);
 const navigate = useNavigate();
 
 const login=async()=>{
@@ -23,6 +62,8 @@ const login=async()=>{
   let data={}
   data.email=email
   data.password=password
+  data.latitude=localStorage.getItem('latitude')
+  data.longitude=localStorage.getItem('longitude')
   console.log("pp",process.env,data)
   axios.defaults.withCredentials = true;
   let res=await axios(BACKEND_HOST+'/login',{
@@ -51,6 +92,7 @@ const login=async()=>{
     localStorage.setItem('id',res.data.user);
     localStorage.setItem('email',res.data.email)
     navigate('/chat')
+    
 }
 catch(e){
     console.log(e);

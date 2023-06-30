@@ -28,7 +28,8 @@ console.log("rr",res);
       let data={}
       data.name=document.getElementById("name").value
       data.email=localStorage.getItem('email')
-
+      data.latitude= localStorage.getItem('latitude')
+      data.longitude=localStorage.getItem('longitude')
       let res =await axios.put(BACKEND_HOST+'/api/edit_profile',data, {
         headers: {
           "Content-Type": "application/json",

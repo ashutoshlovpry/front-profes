@@ -2,10 +2,19 @@
 
 import axios from "axios";
 import React, { Component }  from 'react';
+import  { useEffect, useState } from 'react';
+import { io } from "socket.io-client";
 
 import {BACKEND_HOST} from '../constant'
  function Search(){
- 
+    const socket = io(BACKEND_HOST,{
+        transports: ['websocket'],
+        extraHeaders: {
+            "token": document.cookie.token
+          }
+      });
+    const [user, setUsers] = useState([]);
+
    const searchUser=async (e)=>{
     //e.preventDefault()
         let query=  document.getElementById("search").value
@@ -34,12 +43,17 @@ import {BACKEND_HOST} from '../constant'
       })
 
 console.log("searcgh",res);
-
+setUsers(res.data)
 
 
     }
 
-
+const selectedUser=async(data)=>{
+    console.log(data);
+    let roomId=data._id+localStorage.getItem('id')
+   // console.log({roomId});
+    socket.emit('joinRoom',roomId)
+}
 
     return(<>
     
@@ -48,7 +62,17 @@ console.log("searcgh",res);
     <input placeholder="Search" id="search" aria-label="Search"/>
     <button  onClick={searchUser}>Search</button>
 {/* </nav> */}
-    
+    {
+        user.length && user.map((i)=>(
+            <div onClick={()=>selectedUser(i)}>
+         {i.name}
+
+         {i.profession}
+         </div>
+        )
+            
+        )
+    }
     
     </>)
 }

@@ -6,6 +6,7 @@ import {getMessaging, onMessage} from 'firebase/messaging'
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//import { BackgroundMessage } from 'firebase/messaging';
 
 
 const firebaseConfig = {
@@ -21,6 +22,17 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const messaging=getMessaging(app);
+// BackgroundMessage(function(payload) {
+//   console.log('Received background message ', payload);
+
+//   const notificationTitle = payload.notification.title;
+//   const notificationOptions = {
+//     body: payload.notification.body,
+//   };
+
+//   // self.registration.showNotification(notificationTitle,
+//   //   notificationOptions);
+// });
 // messaging.onBackgroundMessage(function(payload) {
 //   console.log('Received background message ', payload);
 
@@ -62,3 +74,14 @@ onMessage(function (payload) {
 // })
 }
 firebasemsg()
+// messaging.onBackgroundMessage(function(payload) {
+//   console.log('Received background message ', payload);
+
+//   const notificationTitle = payload.notification.title;
+//   const notificationOptions = {
+//     body: payload.notification.body,
+//   };
+
+//   // self.registration.showNotification(notificationTitle,
+//   //   notificationOptions);
+// });
