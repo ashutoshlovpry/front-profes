@@ -1,6 +1,9 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import  { initializeApp  } from "firebase/app";
 import {getMessaging, onMessage} from 'firebase/messaging'
+import 'firebase/auth'
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,6 +25,18 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const messaging=getMessaging(app);
+const firestore = getFirestore(app);
+
+// export const database = {
+//     folders: firestore.collection('folders'),
+//     files: firestore.collection('files'),
+//     formatDoc: doc => {
+//         return {id: doc.id, ...doc.data()}
+//     },
+//    // getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp
+// }
+
+export const storage = getStorage(app);
 // BackgroundMessage(function(payload) {
 //   console.log('Received background message ', payload);
 
@@ -44,25 +59,25 @@ export const messaging=getMessaging(app);
 //   self.registration.showNotification(notificationTitle,
 //     notificationOptions);
 // });
-function firebasemsg (){
-onMessage(function (payload) {
-  console.log(payload);
-  const notificationOption={
-      body:payload.notification.body,
-      icon:payload.notification.icon
-  };
+// function firebasemsg (){
+// onMessage(function (payload) {
+//   console.log(payload);
+//   const notificationOption={
+//       body:payload.notification.body,
+//       icon:payload.notification.icon
+//   };
 
-  if(Notification.permission==="granted"){
-      var notification=new Notification(payload.notification.title,notificationOption);
+//   if(Notification.permission==="granted"){
+//       var notification=new Notification(payload.notification.title,notificationOption);
 
-      notification.onclick=function (ev) {
-          ev.preventDefault();
-          window.open(payload.notification.click_action,'_blank');
-          notification.close();
-      }
-  }
+//       notification.onclick=function (ev) {
+//           ev.preventDefault();
+//           window.open(payload.notification.click_action,'_blank');
+//           notification.close();
+//       }
+//   }
 
-});
+// });
 // messaging.onTokenRefresh(function () {
 //   messaging.getToken()
 //       .then(function (newtoken) {
@@ -72,8 +87,8 @@ onMessage(function (payload) {
 //           console.log(reason);
 //       })
 // })
-}
-firebasemsg()
+//}
+// firebasemsg()
 // messaging.onBackgroundMessage(function(payload) {
 //   console.log('Received background message ', payload);
 

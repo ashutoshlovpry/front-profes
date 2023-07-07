@@ -21,14 +21,14 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const messaging=getMessaging(app);
-// BackgroundMessage(function(payload) {
-//   console.log('Received background message ', payload);
+BackgroundMessage(function(payload) {
+  console.log('Received background message ', payload);
 
-//   const notificationTitle = payload.notification.title;
-//   const notificationOptions = {
-//     body: payload.notification.body,
-//   };
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+  };
 
-//   self.registration.showNotification(notificationTitle,
-//     notificationOptions);
-// });
+  self.registration.showNotification(notificationTitle,
+    notificationOptions);
+});

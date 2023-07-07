@@ -25,7 +25,7 @@ function Chat(){
     });
     useEffect( ()=>{
       let ignore = false;
-      
+    
        fun()
        return () => {
         ignore = true;

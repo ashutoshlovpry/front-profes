@@ -1,0 +1,2 @@
+export const USERDETAIL='USERDETAIL'
+export const PROFILEPIC='PROFILEPIC'

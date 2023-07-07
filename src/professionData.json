@@ -1,5 +1,12 @@
 [
-    { "value":"student"},
-    { "value"  :"teacher"},
-    {"value":"carpenter","name":"carpenter"}
+    { "label":"Student","value":"student"},
+    { "label"  :"Teacher","value":"teacher"},
+    {"label":"Doctor","value":"doctor"},
+    {"label":"Content Creator","value":"content_creator"},
+    {"label":"Accountant","value":"accountant"},
+    {"label":"Chef","value":"chef"},
+    {"label":"Software Engineeer","value":"software_engineer"},
+    {"label":"Architect","value":"architect"},
+    {"label":"Counselor","value":"counselor"},
+    {"label":"Marketing Specialist","value":"marketing_specialist"}
 ]
