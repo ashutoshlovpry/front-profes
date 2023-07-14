@@ -43,12 +43,10 @@ const loginUser=async()=>{
   let res=await axios(BACKEND_HOST+'/login',{
     method: "POST", 
     cache: "no-cache", 
-   // credentials: 'include',//same-origin', // include, *same-origin, omit
     withCredentials:true,
    headers: {
    //"Content-Type": "application/json",
    'Access-Control-Allow-Methods':'GET,OPTIONS,PATCH,DELETE,POST,PUT',
-       //'Content-Type': 'application/x-www-form-urlencoded',
        'Access-Control-Allow-Origin':'http://localhost:3001, https://front-profes.vercel.app, https://new-prof.onrender.com , http://localhost:8000',
        "Access-Control-Allow-Credentials": true,
    },

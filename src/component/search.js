@@ -60,6 +60,15 @@ const selectedUser=async(data)=>{
     
     {/* <nav class="navbar navbar-light bg-light"> */}
     <input placeholder="Search" id="search" aria-label="Search"/>
+    {/* <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search> */}
     <button  onClick={searchUser}>Search</button>
 {/* </nav> */}
     {

@@ -20,7 +20,8 @@ function Chat(){
     const socket = io(BACKEND_HOST,{
       transports: ['websocket'],
       extraHeaders: {
-          "token": document.cookie.token
+          "token": document.cookie.token,
+          transports: ['polling']
         }
     });
     useEffect( ()=>{
